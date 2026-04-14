@@ -1,17 +1,17 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-Clap_Trap::Clap_Trap() : name("Unnamed"), hit_point(10), energy_point(10), attack_damage(0)
+ClapTrap::ClapTrap() : name("Unnamed"), hit_point(10), energy_point(10), attack_damage(0)
 {
-    std::cout << "Default constructor" << std::endl; 
+    std::cout << "Default constructor for ClapTrap" << std::endl; 
 }
 
-Clap_Trap::Clap_Trap(const std::string& name) : name(name), hit_point(10), energy_point(10), attack_damage(0)
+ClapTrap::ClapTrap(const std::string& name) : name(name), hit_point(10), energy_point(10), attack_damage(0)
 {
     std::cout << "Constructor with argument" << std::endl;
 }
 
-Clap_Trap::Clap_Trap(const Clap_Trap& other)
+ClapTrap::ClapTrap(const ClapTrap& other)
 {
     std::cout << "Copy constructor" << std::endl;
     this->name = other.name;
@@ -20,7 +20,7 @@ Clap_Trap::Clap_Trap(const Clap_Trap& other)
     this->hit_point = other.hit_point;
 }
 
-Clap_Trap& Clap_Trap::operator=(const Clap_Trap& other)
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
     std::cout << "Copy assigment operator" << std::endl;
     if (this == &other)
@@ -32,12 +32,12 @@ Clap_Trap& Clap_Trap::operator=(const Clap_Trap& other)
     return (*this);
 }
 
-Clap_Trap::~Clap_Trap()
+ClapTrap::~ClapTrap()
 {
     std::cout << "Destructor" << std::endl;
 }
 
-void Clap_Trap::attack(const std::string& target)
+void ClapTrap::attack(const std::string& target)
 {
     if (this->hit_point == 0)
     {
@@ -53,7 +53,7 @@ void Clap_Trap::attack(const std::string& target)
     std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!" << std::endl;
 }
 
-void Clap_Trap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
     if (this->hit_point == 0)
     {
@@ -69,7 +69,7 @@ void Clap_Trap::takeDamage(unsigned int amount)
     std::cout << "ClapTrap " << this->name << " takes " << taken << " points of damage! Remaining hit points: " << this->hit_point << std::endl;
 }
 
-void Clap_Trap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
     if (this->hit_point == 0)
     {
